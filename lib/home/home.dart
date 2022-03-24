@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lessons/custom_widgets/glassmorphism.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -15,14 +16,23 @@ class _HomeState extends State<Home> {
       //Wrapper
       appBar: AppBar(),
       body: Container(
-        color: Colors.white,
+        color: Color.fromARGB(255, 149, 150, 167),
         alignment: Alignment.center,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Contador'),
-            Text(counter.toString()),
-          ],
+        child: Glassmorphism(
+          blur: 5,
+          opacity: .1,
+          child: Container(
+            color: Color.fromARGB(90, 16, 111, 139),
+            width: 80,
+            height: 60,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Contador'),
+                Text(counter.toString()),
+              ],
+            ),
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -35,6 +45,12 @@ class _HomeState extends State<Home> {
                         counter += 1;
                       });
                     },
+                    // onPanStart: (_) {
+                    //   //Informa que é um void
+                    //   setState(() {
+                    //     counter += 1;
+                    //   });
+                    // },
                     child: Icon(Icons.add, color: Colors.white)),
                 label: ''),
             BottomNavigationBarItem(
